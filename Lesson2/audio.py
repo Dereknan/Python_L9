@@ -2,6 +2,7 @@ import sounddevice as sd
 from scipy.io.wavfile import write
 from pydub import AudioSegment
 import whisper
+import os
 
 # --- Step 1: Record audio from microphone ---
 fs = 16000  # Sample rate
@@ -27,3 +28,8 @@ result = model.transcribe(mp3_file)
 
 print("\nTranscription:")
 print(result["text"])
+
+if os.path.exists(mp3_file) and os.path.exists(wav_file):
+    os.remove(mp3_file)
+    os.remove(wav_file)
+    print(f"Deleted {mp3_file} and {wav_file}")
