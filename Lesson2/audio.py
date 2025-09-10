@@ -23,7 +23,7 @@ AudioSegment.from_wav(wav_file).export(mp3_file, format="mp3")
 print(f"Saved recording as {mp3_file}")
 
 # --- Step 3: Load Whisper turbo model and transcribe ---
-model = whisper.load_model("turbo")  # or 'base', 'small', etc.
+model = whisper.load_model("base")  # or 'base', 'small', etc.
 result = model.transcribe(mp3_file)
 
 print("\nTranscription:")
